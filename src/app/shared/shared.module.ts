@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumsComponent } from './breadcrums/breadcrums.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -10,7 +11,10 @@ import { BreadcrumsComponent } from './breadcrums/breadcrums.component';
         SidebarComponent,
         BreadcrumsComponent
     ],
-    imports: [ CommonModule ],
+    imports: [
+        CommonModule,
+        RouterModule
+    ],
     exports: [
         HeaderComponent,
         SidebarComponent,

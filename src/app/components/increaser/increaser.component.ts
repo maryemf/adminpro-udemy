@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef }
 })
 export class IncreaserComponent implements OnInit {
 
-  @ViewChild('txtPorcentaje') txtPorcentaje: ElementRef; // referencia a objeto html con un identificador #txtPorcent
+  @ViewChild('txtPorcentaje') txtPorcentaje: ElementRef; // referencia a objeto html con una referencia #txtPorcent
   @Input() porcentaje: number = 50;
   @Input('nombre') leyenda: string = 'Leyenda';
   @Output() cambioValor: EventEmitter<number> = new EventEmitter();

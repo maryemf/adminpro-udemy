@@ -14,6 +14,7 @@ import { PagenotfoundComponent } from '../shared/pagenotfound/pagenotfound.compo
 import { PAGES_ROUTES } from './pages.routes';
 import { IncreaserComponent } from '../components/increaser/increaser.component';
 import { GraphDoughnutComponent } from '../components/graph-doughnut/graph-doughnut.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { GraphDoughnutComponent } from '../components/graph-doughnut/graph-dough
         Graph1Component,
         PagenotfoundComponent,
         IncreaserComponent,
-        GraphDoughnutComponent
+        GraphDoughnutComponent,
+        AccountSettingsComponent
     ],
     imports: [
         CommonModule,
