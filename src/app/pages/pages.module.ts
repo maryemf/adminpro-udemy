@@ -15,6 +15,8 @@ import { PAGES_ROUTES } from './pages.routes';
 import { IncreaserComponent } from '../components/increaser/increaser.component';
 import { GraphDoughnutComponent } from '../components/graph-doughnut/graph-doughnut.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         PagenotfoundComponent,
         IncreaserComponent,
         GraphDoughnutComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     imports: [
         CommonModule,
