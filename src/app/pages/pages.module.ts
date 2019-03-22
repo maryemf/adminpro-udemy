@@ -17,6 +17,8 @@ import { GraphDoughnutComponent } from '../components/graph-doughnut/graph-dough
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -30,13 +32,15 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         GraphDoughnutComponent,
         AccountSettingsComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     imports: [
         CommonModule,
         SharedModule,
         FormsModule,
         ChartsModule,
+        PipesModule,
         PAGES_ROUTES
     ],
     exports: [ // usados en otros componentes
