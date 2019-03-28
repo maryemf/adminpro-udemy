@@ -38,7 +38,7 @@ export class UsuarioService {
   }
 
   estaLogueado() {
-    return this.token.length > 5 ? true : false;
+    return this.token && this.token.length > 5 ? true : false;
   }
 
   cargarStorage() {
@@ -66,6 +66,7 @@ export class UsuarioService {
     const url = URL_SERVICES + '/login/google';
     return this.http.post( url, { token }).pipe(
       map( ( (res: any)  => {
+        console.log(res);
         this.guardarStorage(res.id, res.token, res.usuario);
         return true;
       }))
@@ -87,8 +88,10 @@ export class UsuarioService {
     url += '?token=' + this.token;
     return this.http.put( url, usuario )
       .pipe( map ( (resp: any)  => {
-        const usuarioDB = resp.usuario;
-        this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+        if ( usuario._id === this.usuario._id ) {
+          const usuarioDB = resp.usuario;
+          this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+        }
         swal ('Usuario actualizado', usuario.nombre, 'success');
         return true;
       }));
@@ -106,5 +109,27 @@ export class UsuarioService {
       .catch( resp => {
         console.log(resp);
       });
+  }
+
+  cargarUsuarios(desde: number = 0) {
+    const url = URL_SERVICES + '/usuario?desde=' + desde;
+    return this.http.get(url);
+  }
+
+  buscarUsuarios( term: string ) {
+    const url = URL_SERVICES + '/busqueda/coleccion/usuarios/' + term;
+    return this.http.get(url)
+      .pipe( map ( (resp: any) => resp.usuarios ));
+  }
+
+  borrarUsuario(id: string) {
+    let url = URL_SERVICES + '/usuario/' + id;
+    url += '?token=' + this.token;
+
+    return this.http.delete( url )
+      .pipe( map ( (resp: any) => {
+        swal('Usuario borrado', 'El usuario ha sido eliminado correctamente', 'success');
+        return true;
+      } ));
   }
 }
